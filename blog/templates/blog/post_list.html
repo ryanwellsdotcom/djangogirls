@@ -1,21 +1,37 @@
-<html>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
   <title>Ola's blog</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 
 <body>
-  <p>Hi there!</p>
-  <p>It works!</p>
-  {% for post in posts %}
-  <div>
-    <p>published: {{ post.published_date }}</p>
+  <div class="page-header">
     <h1>
-      <a href="">{{ post.title }}</a>
+      <a href="/">Django Girls Blog</a>
     </h1>
-    <p>{{ post.text|linebreaksbr }}</p>
   </div>
-  {% endfor %}
+  <div class="content container">
+    <div class="row">
+      <div class="col-md-8">
+        {% for post in posts %}
+        <div>
+          <p>published: {{ post.published_date }}</p>
+          <h1>
+            <a href="">{{ post.title }}</a>
+          </h1>
+          <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 
 
 </body>
